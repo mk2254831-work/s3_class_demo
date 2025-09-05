@@ -124,4 +124,4 @@ def generate_sample_flights(from_city, to_city, date):
     return sorted(flights, key=lambda x: int(x['fare'].replace('₹', '').replace(',', '')))
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8080)
+    app.run(host="0.0.0.0", port=6000, debug=True)
