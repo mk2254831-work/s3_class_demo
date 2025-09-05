@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Indian Flights Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Indian Flights Finder</h1>
+    <form id="searchForm">
+        <input type="text" id="fromCity" placeholder="From City" list="cities" required>
+        <input type="text" id="toCity" placeholder="To City" list="cities" required>
+        
+        <input type="text" id="startDate" placeholder="Start Date" required>
+        <input type="text" id="endDate" placeholder="End Date" required>
+        <button type="submit">Search Flights</button>
+    </form>
+
+    <datalist id="cities">
+        <option value="Delhi"></option>
+        <option value="Mumbai"></option>
+        <option value="Bangalore"></option>
+        <option value="Chennai"></option>
+        <option value="Kolkata"></option>
+        <option value="Hyderabad"></option>
+        <option value="Pune"></option>
+        <option value="Jaipur"></option>
+        <option value="Goa"></option>
+        <option value="Ahmedabad"></option>
+    </datalist>
+
+    <div class="sorting">
+        <button id="sortFare">Sort by Lowest Fare</button>
+        <button id="sortDate">Sort by Earliest Departure</button>
+    </div>
+
+    <table id="resultsTable">
+        <thead>
+            <tr>
+                <th>Airline</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Departure</th>
+                <th>Arrival</th>
+                <th>Fare</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+<script>
+    flatpickr("#startDate", { dateFormat: "Y-m-d" });
+    flatpickr("#endDate", { dateFormat: "Y-m-d" });
+</script>
+</body>
+</html>
