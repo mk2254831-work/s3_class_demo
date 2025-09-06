@@ -7,7 +7,7 @@ from datetime import datetime, timedelta
 app = Flask(__name__)
 
 # Google Gemini API Configuration
-GEMINI_API_KEY = "AIzaSyCtljQ1UUPCB8HKYde1wQ7GbYOxaBhU_RU"
+GEMINI_API_KEY = "GEMINI_API_KEY"
 GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent"
 
 @app.route('/')
@@ -124,4 +124,5 @@ def generate_sample_flights(from_city, to_city, date):
     return sorted(flights, key=lambda x: int(x['fare'].replace('₹', '').replace(',', '')))
 
 if __name__ == '__main__':
+    #app.run(debug=True)
     app.run(host="0.0.0.0", port=6000, debug=True)
